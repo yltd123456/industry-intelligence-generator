@@ -1,37 +1,43 @@
 # Industry Intelligence Generator
 
-A KSCC-based system that generates structured industry intelligence databases from any market.
+A KSCC Skill that generates a complete structured industry intelligence database from any market. Input an industry name, get a 15-module Markdown knowledge system ready to browse in Obsidian.
 
-## What this is
+## What you get
 
-Industry Intelligence Generator is a KSCC Skill that takes an industry name as input and generates a complete structured industry intelligence database for that industry.
+You give it an industry name (and optionally a market/region):
 
-It builds a multi-dimensional knowledge system including:
+```
+/industry-research 体脂秤 中国
+```
 
-- Brands & competitors
-- Products & categories
-- User pain points
-- Keywords & demand signals
-- Supply chain structure
-- Business models
-- Regulations & compliance
-- Content ecosystems
-- Communities & influencers
-- Market trends
-- Opportunity maps
-- Knowledge graphs
+It generates a `{industry}-Industry/` folder in your working directory — a structured Markdown database covering:
 
-Output is a fully structured Markdown-based industry database, ready to browse in Obsidian.
+| Module | What it covers |
+|--------|---------------|
+| Brands | Top companies, products, pricing, channels |
+| Products | Product categories, market size, trends |
+| Pain-Points | User complaints, unmet needs (Reddit, Zhihu, forums) |
+| Keywords | Search terms by intent (commercial, informational, buying) |
+| Supply-Chain | OEM/ODM factories, component suppliers |
+| Business-Models | How companies make money (hardware, subscription, etc.) |
+| Regulations | FDA, CE, FCC, NMPA — what it takes to enter |
+| Competitors | Deep website teardowns (nav, collections, SEO, social) |
+| Content-Ecosystem | Top accounts per platform, content patterns |
+| Communities | Active forums, subreddits, Discords |
+| Influencers | KOLs with follower counts and rate estimates |
+| Trends | Market shifts with timelines and opportunity windows |
+| Opportunities | Startup, content, and investment plays |
+| Knowledge-Map | 3-level taxonomy, value chain, opportunity map |
+| Sources | All referenced links and data provenance |
 
-## Core Principle
+Each module has enforced minimum counts (e.g. >=15 brands, >=20 pain points, >=5 competitor teardowns) and is validated by an automated audit pass.
 
-Skill reproducibility > demo completeness > documentation aesthetics
+## What is KSCC
 
-This system is designed to be:
+[KSCC](https://claude.com/claude-code) (Claude Code) is Anthropic's CLI tool for Claude. Skills are reusable prompt templates that extend KSCC with domain-specific workflows. This repo is a KSCC skill — you install it into your KSCC skills directory and invoke it with `/industry-research`.
 
-- Reproducible — same input produces same structure
-- Deterministic in structure — 15 fixed modules, minimum counts enforced
-- Scalable across industries — works for any market or region
+> **Why is the skill called `/industry-research` when the repo is called `industry-intelligence-generator`?**
+> The repo name describes the project identity. The skill name describes what you type to use it. They're the same system — just different naming contexts.
 
 ## Repository Structure
 
@@ -41,9 +47,9 @@ industry-intelligence-generator/
 ├── skill/                    # Core engine
 │   └── SKILL.md              # Skill definition (V2-MVP)
 │
-├── demo/                     # Generated outputs
-│   ├── README.md
-│   └── 体脂秤-Industry/       # Example generated output
+├── demo/                     # Generated example
+│   ├── README.md             # Demo index
+│   └── 体脂秤-Industry/       # Full output for body fat scale industry
 │
 ├── audit-report.md           # Quality audit of demo output
 │
@@ -55,12 +61,10 @@ industry-intelligence-generator/
 ### 1. Install Skill
 
 ```bash
-cp -r skill/SKILL.md ~/.claude/skills/industry-research/SKILL.md
+cp skill/SKILL.md ~/.claude/skills/industry-research/SKILL.md
 ```
 
-### 2. Run generation
-
-In KSCC, invoke the skill by its name:
+### 2. Run
 
 ```
 /industry-research 体脂秤 中国
@@ -68,56 +72,45 @@ In KSCC, invoke the skill by its name:
 /industry-research GLP-1药物 美国
 ```
 
-The skill name is `industry-research`. The optional second argument specifies the market/region (defaults to global).
+Optional second argument is market/region. Defaults to global.
 
-### 3. Output
+### 3. Browse output
 
-The skill generates a `{industry}-Industry/` folder in your current working directory containing 15 sub-modules of structured Markdown files. Open the folder in Obsidian and use Graph View to explore knowledge graph connections.
-
-## V2-MVP Design
-
-### Problems solved from V1
-
-| V1 Problem | V2 Solution |
-|------------|-------------|
-| Empty directories | Mandatory module checklist |
-| Low brand coverage | >=15 minimum threshold |
-| Weak competitor set | >=5 enforced minimum |
-| Undefined structure | 15-module fixed schema |
-| No audit system | Phase B validation loop |
-| Tool failure skips | Graceful degradation + fallback |
-
-### Execution Flow
-
-1. Parse industry name + market/region
-2. Execute 15-module generation (WebSearch + WebFetch)
-3. Run Phase B audit (empty dirs, count checks, README consistency)
-4. Auto-fix missing content if audit fails
-5. Re-audit (max 2 cycles)
-6. Deliver final output with audit report
-
-### Degradation Strategy
-
-When search or fetch tools fail, the skill degrades gracefully instead of skipping:
-
-- Search fail -> retry with synonyms (max 2)
-- Fetch fail -> fallback to site homepage
-- Total failure -> inferred content marked `[assumption: needs validation]`
+Open `{industry}-Industry/` in [Obsidian](https://obsidian.md). Use Graph View to explore the knowledge map.
 
 ## Demo
 
-This repository includes a full example:
+This repo includes a complete generated example — the body fat scale (体脂秤) industry:
 
-`demo/体脂秤-Industry/` — 67 structured Markdown files covering the body fat scale industry.
+```
+体脂秤-Industry/
+├── Brands/          19 brand files + index
+├── Products/        6 product types + index
+├── Pain-Points/     20 pain points
+├── Keywords/        60+ keywords by intent
+├── Competitors/     6 deep teardowns + summary
+├── Content-Ecosystem/  5 platform files + patterns
+├── Knowledge-Map/   3-level taxonomy + 8 card directories
+├── Trends/          7 industry trends
+├── Opportunities/   18 opportunity entries
+└── ...              (Supply-Chain, Business-Models, Regulations, Communities, Influencers, Sources)
+```
 
-- 19 brands, 6 competitor analyses, 20 user pain points
-- 7 market trends, 18 business opportunities
-- Knowledge graph with 8 core nodes
-- Audit result: **PASS** — see `audit-report.md` for details
+67 files total. Audit result: **PASS** — see [`audit-report.md`](audit-report.md).
+
+## Design
+
+This skill is built for:
+
+- **Reproducibility** — same input, same output structure
+- **Completeness** — every module is generated; no empty directories
+- **Graceful failure** — if a search or fetch fails, the skill retries with synonyms, falls back to site homepages, or infers content (always marked with `[assumption: needs validation]`)
+
+For implementation details (module specs, field requirements, audit logic), see [`skill/SKILL.md`](skill/SKILL.md).
 
 ## Future Roadmap
 
-- Dynamic industry intelligence system (from static snapshot to living database)
+- Dynamic intelligence system (from static snapshot to living database)
 - Scheduled updates via CronCreate
 - Multi-industry comparison
 - API exposure for automation tools

@@ -1,6 +1,6 @@
 # Industry Intelligence Generator
 
-A KSCC Skill that generates a complete structured industry intelligence database from any market. Input an industry name, get a 15-module Markdown knowledge system ready to browse in Obsidian.
+A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that generates a complete structured industry intelligence database from any market. Input an industry name, get a 15-module Markdown knowledge system ready to browse in Obsidian.
 
 ## What you get
 
@@ -32,12 +32,12 @@ It generates a `{industry}-Industry/` folder in your working directory — a str
 
 Each module has enforced minimum counts (e.g. >=15 brands, >=20 pain points, >=5 competitor teardowns) and is validated by an automated audit pass.
 
-## What is KSCC
+## How it works
 
-[KSCC](https://claude.com/claude-code) (Claude Code) is Anthropic's CLI tool for Claude. Skills are reusable prompt templates that extend KSCC with domain-specific workflows. This repo is a KSCC skill — you install it into your KSCC skills directory and invoke it with `/industry-research`.
+This is a [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill — a reusable prompt template that extends Claude Code with domain-specific workflows. You install it into your Claude Code skills directory and invoke it with `/industry-research`.
 
 > **Why is the skill called `/industry-research` when the repo is called `industry-intelligence-generator`?**
-> The repo name describes the project identity. The skill name describes what you type to use it. They're the same system — just different naming contexts.
+> The repo name describes the project. The skill name is what you type to use it. Same system — different naming contexts.
 
 ## Repository Structure
 

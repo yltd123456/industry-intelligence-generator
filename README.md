@@ -7,7 +7,7 @@ A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that gener
 You give it an industry name (and optionally a market/region):
 
 ```
-/industry-research 体脂秤 中国
+/industry-research 体脂秤 (Body Fat Scale) 中国 (China)
 ```
 
 It generates a `{industry}-Industry/` folder in your working directory — a structured Markdown database covering:
@@ -49,7 +49,7 @@ industry-intelligence-generator/
 │
 ├── demo/                     # Generated example
 │   ├── README.md             # Demo index
-│   └── 体脂秤-Industry/       # Full output for body fat scale industry
+│   └── 体脂秤-Industry/ (Body Fat Scale)       # Body Fat Scale industry example
 │
 ├── audit-report.md           # Quality audit of demo output
 │
@@ -67,9 +67,9 @@ cp skill/SKILL.md ~/.claude/skills/industry-research/SKILL.md
 ### 2. Run
 
 ```
-/industry-research 体脂秤 中国
-/industry-research 新能源汽车 全球
-/industry-research GLP-1药物 美国
+/industry-research 体脂秤 (Body Fat Scale) 中国 (China)
+/industry-research 新能源汽车 (New Energy Vehicle) 全球 (Global)
+/industry-research GLP-1药物 (GLP-1 Drugs) 美国 (US)
 ```
 
 Optional second argument is market/region. Defaults to global.
@@ -80,10 +80,10 @@ Open `{industry}-Industry/` in [Obsidian](https://obsidian.md). Use Graph View t
 
 ## Demo
 
-This repo includes a complete generated example — the body fat scale (体脂秤) industry:
+This repo includes a complete generated example (体脂秤-Industry/, Body Fat Scale):
 
 ```
-体脂秤-Industry/
+体脂秤-Industry/ (Body Fat Scale)
 ├── Brands/          19 brand files + index
 ├── Products/        6 product types + index
 ├── Pain-Points/     20 pain points

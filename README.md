@@ -44,14 +44,22 @@ This is a [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill �
 ```
 industry-intelligence-generator/
 │
+├── .claude-plugin/           # Plugin metadata (installable via npx/CLI)
+│   ├── plugin.json           # Runtime manifest
+│   └── marketplace.json      # Discovery metadata (keywords, homepage)
+│
 ├── skill/                    # Core engine
-│   └── SKILL.md              # Skill definition (V2-MVP)
+│   ├── SKILL.md              # Skill definition (V2-MVP)
+│   └── llms.txt              # Machine-readable skill index
+│
+├── assets/                   # Images for README (banner, screenshots)
 │
 ├── demo/                     # Generated example
 │   ├── README.md             # Demo index
-│   └── 体脂秤-Industry/ (Body Fat Scale)       # Body Fat Scale industry example
+│   └── 体脂秤-Industry/ (Body Fat Scale)  # Full generated output
 │
 ├── audit-report.md           # Quality audit of demo output
+├── CHANGELOG.md              # Version history
 │
 └── README.md
 ```

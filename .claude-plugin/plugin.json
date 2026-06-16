@@ -1,0 +1,19 @@
+{
+  "name": "industry-intelligence-generator",
+  "description": "Generates structured industry intelligence databases — brands, competitors, pain points, keywords, supply chain, content ecosystem, knowledge maps, and opportunity analysis",
+  "owner": {
+    "name": "yltd123456",
+    "email": ""
+  },
+  "plugins": [
+    {
+      "name": "industry-research",
+      "description": "Industry intelligence generation skill — input an industry name, output a 15-module structured Markdown database",
+      "version": "2.0.0",
+      "source": "./skill",
+      "author": {
+        "name": "yltd123456"
+      }
+    }
+  ]
+}

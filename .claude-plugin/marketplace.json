@@ -1,0 +1,13 @@
+{
+  "name": "industry-intelligence-generator",
+  "description": "Generates structured industry intelligence databases — brands, competitors, pain points, keywords, supply chain, content ecosystem, knowledge maps, and opportunity analysis",
+  "version": "2.0.0",
+  "author": {
+    "name": "yltd123456",
+    "email": ""
+  },
+  "homepage": "https://github.com/yltd123456/industry-intelligence-generator",
+  "repository": "https://github.com/yltd123456/industry-intelligence-generator",
+  "license": "MIT",
+  "keywords": ["claude-code", "skill", "industry-research", "market-intelligence", "obsidian", "competitive-analysis", "knowledge-graph"]
+}

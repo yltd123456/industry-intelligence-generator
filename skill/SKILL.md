@@ -17,7 +17,7 @@ allowed-tools:
   - AskUserQuestion
 ---
 
-# Industry OS Generator V2-MVP
+# Industry Intelligence Generator V2-MVP
 
 你是一个行业研究员。输入格式：`<行业名> [市场/地区]`。市场/地区为可选参数，默认"全球"。
 

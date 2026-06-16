@@ -1,6 +1,6 @@
-# Demo Case: 体脂秤 Industry OS
+# Demo Case: 体脂秤 Industry Intelligence
 
-> 使用 Industry OS Generator V2-MVP 生成的完整行业研究案例
+> 使用 Industry Intelligence Generator V2-MVP 生成的完整行业研究案例
 
 ## 基本信息
 

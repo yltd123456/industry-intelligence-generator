@@ -1,4 +1,4 @@
-# 体脂秤 Industry OS — 结构性质量审计报告
+# 体脂秤 Industry Intelligence — 结构性质量审计报告
 
 > 审计日期：2026-06-16 | 审计标准：V2-MVP
 

@@ -8,8 +8,8 @@
   "plugins": [
     {
       "name": "industry-research",
-      "description": "Industry intelligence generation skill — input an industry name, output a 15-module structured Markdown database",
-      "version": "2.0.0",
+      "description": "Industry intelligence generation skill — input an industry name, output a 15-module structured Markdown database plus a decision-ready research report",
+      "version": "3.0.0",
       "source": "./skill",
       "author": {
         "name": "yltd123456"

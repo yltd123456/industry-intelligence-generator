@@ -1,7 +1,7 @@
 {
   "name": "industry-intelligence-generator",
-  "description": "Generates structured industry intelligence databases — brands, competitors, pain points, keywords, supply chain, content ecosystem, knowledge maps, and opportunity analysis",
-  "version": "2.0.0",
+  "description": "Generates structured industry intelligence databases and decision-ready research reports — brands, competitors, pain points, keywords, supply chain, content ecosystem, knowledge maps, opportunity analysis with 90-day action plans",
+  "version": "3.0.0",
   "author": {
     "name": "yltd123456",
     "email": ""

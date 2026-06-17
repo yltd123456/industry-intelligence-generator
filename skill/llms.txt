@@ -1,3 +1,3 @@
 # llms.txt
 
-industry-research: Generates a 15-module structured industry intelligence database (brands, competitors, pain points, keywords, supply chain, business models, regulations, content ecosystem, communities, influencers, trends, opportunities, knowledge maps, sources) from any industry name. Invoke with /industry-research <industry> [market].
+industry-research: Generates a 15-module structured industry intelligence database plus a decision-ready research report from any industry name. Core modules (Brands, Competitors, Pain-Points, Opportunities) use authority-source L1 searches; auxiliary modules use L2/L3 and can skip if budget runs out. Inference capped at 20%. Invoke with /industry-research <industry> [market].

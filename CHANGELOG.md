@@ -2,6 +2,33 @@
 
 All notable changes to the Industry Intelligence Generator skill.
 
+## [3.0.0] - 2026-06-17
+
+### Added
+
+- Three-tier search strategy (L1 authority sources → L2 broad keywords → L3 vertical sources) for all 15 modules (Section: 搜索策略框架)
+- Industry type detection step: hardware/SaaS/medical/food/finance with vertical source priorities (Section: 行业类型判断)
+- Module priority classification: core modules (Brands, Competitors, Pain-Points, Opportunities) vs auxiliary modules (Section: 模块清单)
+- Phase C: research report generation with 4 parts — industry overview, key findings, opportunity ranking with 90-day plans, data confidence declaration (Section: Phase C)
+- Phase B4: inference ratio check — infers capped at 20% of total files (Section: Phase B)
+- Data confidence section in generated README — declares inference ratio and points to report (Section: 收尾)
+- Authority source mapping table: 10 data types with designated search patterns and target sources (Section: L1 权威数据源)
+
+### Changed
+
+- Degradation rule #6 replaced by 6a/6b/6c: distinguish "can't find" vs "doesn't exist"; inferred files must separate confirmed vs. inferred data sections; inference ratio capped at 20% with user prompt on overflow (Section: 执行前规则 #6)
+- Core module minimum counts adjusted for quality: Brands ≥10 (was ≥15), Pain-Points ≥15 (was ≥20), Opportunities ≥8 (was ≥10) — prioritize data quality over quantity
+- Pain-Points now require source quotes with platform/URL (was "用户原话" without source requirement) (Section: 模块3)
+- Opportunities now require data source attribution and feasibility rating (Section: 模块13)
+- Sources now include confidence rating field (Section: 模块15)
+- Auxiliary modules may be skipped with "本次未生成" label when search budget runs out (Section: 执行前规则 #7)
+
+### Fixed
+
+- Inferred data no longer mixed with confirmed data — always separated by section headers (Section: 执行前规则 #6b)
+- Fields with no public data are left blank instead of fabricated (Section: 执行前规则 #6a)
+- User is alerted when inference exceeds 20% cap instead of silently continuing (Section: 执行前规则 #6c)
+
 ## [2.0.0] - 2026-06-16
 
 ### Added

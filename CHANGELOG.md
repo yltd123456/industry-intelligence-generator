@@ -2,6 +2,20 @@
 
 All notable changes to the Industry Intelligence Generator skill.
 
+## [3.1.0] - 2026-07-01
+
+### Added
+- Progressive disclosure architecture per Agent Skills spec: SKILL.md slimmed to a 167-line router; detailed module field specs, search strategy, audit checklist, and report structure moved to `references/` loaded on demand (Section: 流程总览)
+- `references/` directory: search-strategy.md, modules-core.md, modules-aux.md, audit-checklist.md, report-structure.md
+- `scripts/audit.sh`: automated Phase B audit (B1 empty dirs, B2 count thresholds, B3 README consistency, B4 inference ratio) — replaces inline bash snippets
+- `assets/` directory: source-footer.md, inference-warning.md, readme-data-confidence.md reusable templates
+- `license: MIT` and `compatibility` frontmatter fields; MIT LICENSE file at repo root
+
+### Changed
+- Always-loaded SKILL.md footprint reduced 647 → 167 lines (~74%); auxiliary module field specs (~266 lines) no longer loaded when search budget runs out before Phase A-aux (Section: 流程总览)
+- Phase B audit now invoked via `scripts/audit.sh` with inline-command fallback preserved in `references/audit-checklist.md`
+- Repeated markdown blocks (source footer, inference warning, README confidence) extracted to `assets/` templates instead of inlined per occurrence
+
 ## [3.0.0] - 2026-06-17
 
 ### Added

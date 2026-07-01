@@ -74,9 +74,12 @@ industry-intelligence-generator/
 │   ├── plugin.json           # Runtime manifest
 │   └── marketplace.json      # Discovery metadata (keywords, homepage)
 │
-├── skill/                    # Core engine
-│   ├── SKILL.md              # Skill definition (V3)
-│   └── llms.txt              # Machine-readable skill index
+├── skill/                    # Core engine (progressive disclosure, V3.1)
+│   ├── SKILL.md              # Skill router (~167 lines) — flow + module index only
+│   ├── llms.txt              # Machine-readable skill index
+│   ├── references/           # On-demand detail (search strategy, module field specs, audit checklist, report structure)
+│   ├── scripts/              # audit.sh — automated Phase B audit (B1–B4)
+│   └── assets/               # Reusable templates (source footer, inference warning, README confidence)
 │
 ├── assets/                   # Images for README (banner, screenshots)
 │
@@ -95,7 +98,9 @@ industry-intelligence-generator/
 ### 1. Install Skill
 
 ```bash
-cp skill/SKILL.md ~/.claude/skills/industry-research/SKILL.md
+# Copy the ENTIRE skill package (SKILL.md + references/ + scripts/ + assets/).
+# Copying only SKILL.md will break progressive disclosure — the references/ files are loaded on demand.
+cp -r skill/* ~/.claude/skills/industry-research/
 ```
 
 ### 2. Run
@@ -157,5 +162,4 @@ For implementation details (module specs, field requirements, audit logic, searc
 
 ## License / Usage
 
-This project is a reusable intelligence generation system.
-You may extend or fork it for other industries.
+Licensed under the [MIT License](LICENSE). You may extend or fork it for other industries.
